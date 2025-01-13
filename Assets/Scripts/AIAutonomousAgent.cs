@@ -6,6 +6,8 @@ public class AIAutonomousAgent : AIAgent
 
     private void Update()
     {
+        Debug.DrawRay(transform.position, transform.forward * perception.maxDistance, Color.yellow);
+
         var gameObjects = perception.GetGameObjects();
         foreach (var go in gameObjects)
         {

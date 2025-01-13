@@ -675,9 +675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a3c2d0cac9a9949b2bb14b4c814cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName: 
+  tagName: Enemy
   maxDistance: 6
-  maxAngle: 0
+  maxAngle: 45
 --- !u!114 &1275179793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,7 +774,7 @@ Transform:
   m_GameObject: {fileID: 1275179791}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -902,7 +902,7 @@ GameObject:
   - component: {fileID: 1918075357}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
