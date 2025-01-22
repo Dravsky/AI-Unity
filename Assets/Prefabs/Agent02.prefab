@@ -50,7 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: -2600971437807488419}
-  perception: {fileID: 8327407770836401693}
+  displacement: 20
+  distance: 10
+  radius: 3
+  seekPerception: {fileID: 8178266282688837666, guid: 927280470a8a36a439914d96e84b4ccd, type: 3}
+  fleePerception: {fileID: 8327407770836401693}
 --- !u!114 &8327407770836401693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f6cf97df04e9f46857106144e4a0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 8
   minSpeed: 5
   maxForce: 5
 --- !u!33 &9169637417237641968
