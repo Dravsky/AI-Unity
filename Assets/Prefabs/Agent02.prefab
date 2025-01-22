@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: -2600971437807488419}
-  displacement: 20
+  displacement: 100
   distance: 10
   radius: 3
   seekPerception: {fileID: 8178266282688837666, guid: 927280470a8a36a439914d96e84b4ccd, type: 3}

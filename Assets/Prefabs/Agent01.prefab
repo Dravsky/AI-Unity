@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 2080139724379743219}
-  displacement: 20
+  displacement: 100
   distance: 10
   radius: 3
   seekPerception: {fileID: 8178266282688837666}
