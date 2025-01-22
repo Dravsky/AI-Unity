@@ -51,8 +51,8 @@ public class AIAutonomousAgent : AIAgent
             angle += Random.Range(-displacement, displacement);
             //create rotation quaternion around y axis (up)
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
-            Vector3 point = rotation * (Vector3.forward * radius) * distance;
-            Vector3 forward = transform.forward + movement.Direction;
+            Vector3 point = rotation * (Vector3.forward * radius);
+            Vector3 forward = movement.Direction * distance;
             Vector3 force = GetSteeringForce(forward + point);
             movement.ApplyForce(force);
         }
