@@ -10,7 +10,7 @@ public class KinematicMovement : Movement
     private void LateUpdate()
     {
         Velocity += Acceleration * Time.deltaTime;
-        Velocity = Vector3.ClampMagnitude(Velocity, maxSpeed);
+        Velocity = Vector3.ClampMagnitude(Velocity, data.maxSpeed);
 
         transform.position += Velocity * Time.deltaTime;
         Acceleration = Vector3.zero;
