@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -55,8 +56,8 @@ public class AIAutonomousAgent : AIAgent
             if (gameObjects.Length > 0)
             {
                 movement.ApplyForce(Cohesion(gameObjects) * data.cohesionWeight);
-                movement.ApplyForce(Separation(gameObjects, data.separationRadius) * data.cohesionWeight);
-                movement.ApplyForce(Alignment(gameObjects) * data.cohesionWeight);
+                movement.ApplyForce(Separation(gameObjects, data.separationRadius) * data.separationWeight);
+                movement.ApplyForce(Alignment(gameObjects) * data.alignmentWeight);
             }
         }
 
@@ -93,12 +94,34 @@ public class AIAutonomousAgent : AIAgent
 
     private Vector3 Separation(GameObject[] neighbors, float radius)
     {
-        return Vector3.zero;
+        Vector3 separation = Vector3.zero;
+        foreach (var neighbor in neighbors)
+        {
+            Vector3 direction = transform.position - neighbor.transform.position;
+            float distance = Vector3.Magnitude(direction);
+            if (distance < radius)
+            {
+                separation += direction / (distance * distance);
+            }
+        }
+
+        Vector3 force = GetSteeringForce(separation);
+
+        return force;
     }
 
     private Vector3 Alignment(GameObject[] neighbors)
     {
-        return Vector3.zero;
+        Vector3 velocities = Vector3.zero;
+        foreach (var neighbor in neighbors)
+        {
+            velocities += neighbor.GetComponent<Movement>().Velocity;
+        }
+
+        Vector3 averageVelocity = velocities / neighbors.Length;
+        Vector3 force = GetSteeringForce(averageVelocity);
+
+        return force;
     }
 
     private Vector3 Seek(GameObject go)
