@@ -15,8 +15,8 @@ MonoBehaviour:
   displacement: 1.56
   distance: 1.37
   radius: 4.42
-  cohesionWeight: 3.33
-  separationWeight: 4.39
+  cohesionWeight: 0.42
+  separationWeight: 5
   separationRadius: 4.28
-  alignmentWeight: 1.4
+  alignmentWeight: 0.82
   obstacleWeight: 15

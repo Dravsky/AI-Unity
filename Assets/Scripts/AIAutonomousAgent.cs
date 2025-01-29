@@ -62,6 +62,7 @@ public class AIAutonomousAgent : AIAgent
             Vector3 direction = Vector3.zero;
             if (obstaclePerception.GetOpenDirection(ref direction))
             {
+                Debug.DrawRay(transform.position, direction * 5, Color.red, 0.2f);
                 movement.ApplyForce(GetSteeringForce(direction) * data.obstacleWeight);
             }
         }

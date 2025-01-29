@@ -28,7 +28,7 @@ public static class Utilities
         int index = 0;
 
         // set forward direction if odd number
-        if (num % 2 != 0)
+        if (num % 2 == 1)
 	    {
             result[index++] = Vector3.forward;
             num--;
