@@ -10,6 +10,7 @@ public class AIAutonomousAgent : AIAgent
     public Perception seekPerception;
     public Perception fleePerception;
     public Perception flockPerception;
+    public Perception obstaclePerception;
 
     float angle;
 
@@ -43,12 +44,6 @@ public class AIAutonomousAgent : AIAgent
             }
         }
 
-        //WANDER
-        if (movement.Acceleration.sqrMagnitude == 0)
-        {
-            movement.ApplyForce(Wander());
-        }
-
         //FLOCK
         if (flockPerception != null)
         {
@@ -61,19 +56,31 @@ public class AIAutonomousAgent : AIAgent
             }
         }
 
+        //OBSTACLE
+        if (obstaclePerception != null && obstaclePerception.CheckDirection(Vector3.forward))
+        {
+            Vector3 direction = Vector3.zero;
+            if (obstaclePerception.GetOpenDirection(ref direction))
+            {
+                movement.ApplyForce(GetSteeringForce(direction) * data.obstacleWeight);
+            }
+        }
+
+        //WANDER
+        if (movement.Acceleration.sqrMagnitude == 0)
+        {
+            Vector3 force = Wander();
+            movement.ApplyForce(force);
+        }
+
         Vector3 acceleration = movement.Acceleration;
-        acceleration.y = 0;
+        //acceleration.y = 0;
         movement.Acceleration = acceleration;
 
         if (movement.Direction.sqrMagnitude != 0)
         {
             transform.rotation = Quaternion.LookRotation(movement.Direction);
         }
-
-        //foreach (var go in gameObjects)
-        //{
-        //    Debug.DrawLine(transform.position, go.transform.position, Color.red);
-        //}
     }
 
     private Vector3 Cohesion(GameObject[] neighbors)

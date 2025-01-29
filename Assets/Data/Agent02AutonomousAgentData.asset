@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displacement: 1.56
   distance: 1.37
-  radius: 2.37
+  radius: 4.42
   cohesionWeight: 3.33
-  separationWeight: 5
-  separationRadius: 2.25
-  alignmentWeight: 1.3
+  separationWeight: 4.39
+  separationRadius: 4.28
+  alignmentWeight: 1.4
+  obstacleWeight: 15
