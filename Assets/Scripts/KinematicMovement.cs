@@ -7,6 +7,12 @@ public class KinematicMovement : Movement
         Acceleration += force;
     }
 
+    public override void MoveTowards(Vector3 position)
+    {
+        Vector3 direction = position - transform.position;
+        ApplyForce(direction.normalized * data.maxForce);
+    }
+
     private void LateUpdate()
     {
         Velocity += Acceleration * Time.deltaTime;

@@ -9,4 +9,5 @@ public abstract class Movement : MonoBehaviour
     public Vector3 Direction { get { return Velocity.normalized; } }
 
     public abstract void ApplyForce(Vector3 force);
+    public abstract void MoveTowards(Vector3 position);
 }
